@@ -1,0 +1,28 @@
+#footer {
+    width: 1000px;
+    margin: 0px auto 0px auto;
+    height: 50px;
+    text-align:center;
+    bottom: 0;
+}
+#footerbar {
+    height: 50px;
+    float: left;
+    min-width: 100%;
+    background-color: #333333;
+    bottom: 0;
+}
+
+#footernav {
+    list-style: none;
+    margin:0px;
+    padding: 0px;
+}
+#footernav p {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+    float: left;
+}
+
+

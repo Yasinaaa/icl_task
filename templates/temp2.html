@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-select-with-default-values</title>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/j.js' %}"></script>
+
+
+
+</head>
+<!--<body  ng-app='app'>
+<div ng-controller="Ctrl">
+    <select id="sel" class="input-block-level" ng-model="list_category" ng-options="obj.id as obj.name for obj in list_categories.data">
+        <option value="">Other</option>
+    </select>
+    <input class="input-block-level ng-valid ng-dirty" ng-model="new_list_category" ng-show="!list_category" type="text" placeholder="Category name">
+
+    <p>$scope.list_category: {{ list_category }}<p>
+    <p>$scope.new_list_category: {{  new_list_category }}<p>
+      <div class="data">
+
+        </div>
+</div>
+</body> -->
+<body ng-app="demoApp">
+    <div ng-controller="DemoController">
+        <div>
+            <h2>Incorrect</h2>
+            <p>We might expect the select box to be initialized to "two," but it isn't because these are two different objects.</p>
+            <select ng-model="incorrectlySelected"
+                ng-options="opt as opt.label for opt in options">
+            </select>
+
+            <div class="data"></div>
+            {% verbatim %}
+            <h1 class="user-name">The value selected is {{ incorrectlySelected.value  }}.</h1>
+            {% endverbatim %}
+
+        </div>
+        <div>
+            <h2>Correct</h2>
+            <p>Here we are referencing the same object in <code>$scope.correctlySelected</code> as in <code>$scope.options</code>, so the select box is initialized correctly.</p>
+            <select ng-model="correctlySelected"
+                ng-options="opt as opt.label for opt in options">
+            </select>
+
+            The value selected is {{ correctlySelected.value }}.
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/right_slidebar.css' %}"/>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://docs.angularjs.org/angular.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/my_angular.js' %}"></script>
+
+
+
+    </head>
+
+    <body ng-app="test_angular">
+          <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <p class="navbar-brand">ICL Task</p>
+            </div>
+          </div>
+        </div>
+
+
+
+    <div class="container">
+
+
+        <div class="col-xs-12 col-sm-9">
+
+          <div class="jumbotron">
+           <h2>Hello, dear friend!</h2>
+              <p>There are you can plot your graphics</p>
+              <p>Please, upload your excel file (File with .xls or .xlsx extension)</p>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-lg-4">
+                <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input name="save_new" type="submit" value="save"/>
+                    </form>
+            </div>
+              </div>
+            </div>
+
+
+    <div ng-controller="DemoCtrl">
+<form method="POST" name="myForm">
+      {% csrf_token %}
+    <label for="mySelect">Make a choice:</label>
+    <select name="mySelect" id="mySelect"
+      ng-options="option.name for option in data.availableOptions track by option.id"
+      ng-model="data.selectedOption"></select>
+  </form>
+  <hr>
+  <tt>option = {{data.selectedOption}}</tt><br/>
+
+              <!--  <form method="POST">
+                {% csrf_token %}
+                 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+                          <div class="list-group">
+                            <p>Or choose existen one</p>
+                              {% for g in all_graphs %}
+                              <div ng-click="save()" name="in" value="{{ g.title }}"
+                                 id="like" class="list-group-item">{{ g.title }}</div>
+
+                              {% endfor %}
+                          </div>
+                 </div>
+                </form> -->
+
+
+    <div class="data">
+
+        </div>
+        <div id="foo">
+        </div>
+
+
+    <!--<img src="{% static 'media/graphs/jj.png' %}"> -->
+
+           {% if graph != "e" %}
+
+            <img src="{{ graph }}">
+
+            {% endif %}
+           <hr>
+
+    </div>
+          <footer>
+              <p>Made by Zalyalova Yasina</p>
+          </footer>
+            </div>
+
+
+      <!--<div id="footerbar">
+                <ul id="footernav">
+                  <p>Made by Zalyalova Yasina</p>
+                    </ul>
+      </div> -->
+
+    </body>
+
+</html>

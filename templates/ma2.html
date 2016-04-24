@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>dj-angular</title>
+</head>
+<body ng-app="test_angular">
+    <h1>Django Angular</h1>
+
+    <div ng-controller="DemoCtrl">
+        <a id="in">hhhhhhhhhhhhhhhhh</a>
+ <img src="/static_files/media/graphs/jj.png">
+        <div class="data">
+
+        </div>
+        <div id="foo">
+        </div>
+        <button ng-click="save()">Click</button>
+
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/my_angular.js' %}"></script>
+</body>
+</html>
