@@ -14,10 +14,7 @@
     <script type="text/javascript" src="https://docs.angularjs.org/angular.min.js"></script>
 
     <script type="text/javascript" src="{% static 'js/my_angular.js' %}"></script>
-
-
-
-    </head>
+   </head>
 
     <body >
           <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -55,29 +52,16 @@
     <div ng-controller="DemoCtrl">
 <form method="POST" name="myForm">
       {% csrf_token %}
-    <label for="mySelect">Make a choice:</label>
+    <label ng-click="f()" for="mySelect">Make a choice:</label>
     <select name="mySelect" id="mySelect"
       ng-options="option.title for option in data.availableOptions track by option.id"
       ng-model="data.selectedOption"></select>
   </form>
   <hr>
      {% verbatim %}
-  <tt>option = {{data.selectedOption}}</tt><br/>
+  <img class='image2' src="static_fiels/media/graphs/{{data.selectedOption.title}}.png"/><br/>
   {% endverbatim %}
 </div>
-              <!--  <form method="POST">
-                {% csrf_token %}
-                 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-                          <div class="list-group">
-                            <p>Or choose existen one</p>
-                              {% for g in all_graphs %}
-                              <div ng-click="save()" name="in" value="{{ g.title }}"
-                                 id="like" class="list-group-item">{{ g.title }}</div>
-
-                              {% endfor %}
-                          </div>
-                 </div>
-                </form> -->
 
 
     <div class="data">
@@ -86,13 +70,8 @@
         <div id="foo">
         </div>
 
-
-    <!--<img src="{% static 'media/graphs/jj.png' %}"> -->
-
-           {% if graph != "e" %}
-
-            <img src="{{ graph }}">
-
+         {% if graph != "e" %}
+           <img src="static_fiels/{{ graph }}">
             {% endif %}
            <hr>
 
@@ -101,13 +80,6 @@
               <p>Made by Zalyalova Yasina</p>
           </footer>
             </div>
-
-
-      <!--<div id="footerbar">
-                <ul id="footernav">
-                  <p>Made by Zalyalova Yasina</p>
-                    </ul>
-      </div> -->
 
     </body>
 
