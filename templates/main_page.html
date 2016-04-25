@@ -52,7 +52,7 @@
     <div ng-controller="DemoCtrl">
 <form method="POST" name="myForm">
       {% csrf_token %}
-    <label ng-click="f()" for="mySelect">Make a choice:</label>
+    <label ng-click="label_click()" for="mySelect">Make a choice:</label>
     <select name="mySelect" id="mySelect"
       ng-options="option.title for option in data.availableOptions track by option.id"
       ng-model="data.selectedOption"></select>

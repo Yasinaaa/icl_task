@@ -8,7 +8,7 @@ angular.module('test_angular', [])
    $scope.projects = [];
 
 
-        $scope.f = function(){
+        $scope.label_click = function(){
              $http.get('/static_fiels/media/all_graphs.json').success(function(data) {
             //$scope.projects = data;
             console.log($scope.projects);
@@ -25,7 +25,7 @@ angular.module('test_angular', [])
                 });
         }
 
-        $scope.f();
+        $scope.label_click();
 
 
 }]);
